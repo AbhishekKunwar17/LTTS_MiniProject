@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+
 #include <unistd.h>
 
 int i, j, height = 20, width = 20;
@@ -62,7 +62,7 @@ void draw()
 void input()
 {
 	if (kbhit()) {
-		switch (getch()) {
+		switch () {
 		case 'a':
 			flag = 1;
 			break;
