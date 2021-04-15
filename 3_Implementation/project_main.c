@@ -1,112 +1,148 @@
-#include <calculator_operations.h>
+// C program to build the complete
+// snake game
+#include <conio.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-/* Status of the operation requested */
-#define VALID   (1)
-#define INVALID (0)
+int i, j, height = 20, width = 20;
+int gameover, score;
+int x, y, fruitx, fruity, flag;
 
-/* Calculator operation requested by user*/
-unsigned int calculator_operation = 0;
-
-/* Operands on which calculation is performed */
-int calculator_operand1 = 0;
-int calculator_operand2 = 0;
-
-/* Valid operations */
-enum operations{ ADD=1, SUBTRACT, MULTIPLY, DIVIDE, EXIT };
-
-/* Display the menu of operations supported */
-void calculator_menu(void);
-/* Verifies the requested operations validity */
-int valid_operation(int operation);
-
-
-/* Start of the application */
-int main(int argc, char *argv[])
+// Function to generate the fruit
+// within the boundary
+void setup()
 {
-    printf("\n****Calculator****\n");
-    while(1)
-    {
-        calculator_menu();
-    }
+	gameover = 0;
+
+	// Stores height and width
+	x = height / 2;
+	y = width / 2;
+label1:
+	fruitx = rand() % 20;
+	if (fruitx == 0)
+		goto label1;
+label2:
+	fruity = rand() % 20;
+	if (fruity == 0)
+		goto label2;
+	score = 0;
 }
 
-void calculator_menu(void)
+// Function to draw the boundaries
+void draw()
 {
-    printf("\nAvailable Operations\n");
-    printf("\n1. Add\n2. Subtract\n3. Multiply\n4. Divide\n5. Exit");
-    printf("\n\tEnter your choice\n");
-   
-     __fpurge(stdin);
-    scanf("%d", &calculator_operation);
+	system("cls");
+	for (i = 0; i < height; i++) {
+		for (j = 0; j < width; j++) {
+			if (i == 0 || i == width - 1
+				|| j == 0
+				|| j == height - 1) {
+				printf("#");
+			}
+			else {
+				if (i == x && j == y)
+					printf("0");
+				else if (i == fruitx
+						&& j == fruity)
+					printf("*");
+				else
+					printf(" ");
+			}
+		}
+		printf("\n");
+	}
 
-    if(EXIT == calculator_operation)
-    {
-        printf("\nThank you. Exiting the Application\n");
-        exit(0);
-    }
-
-    if(INVALID != valid_operation(calculator_operation))
-    {
-        printf("\n\tEnter your Numbers with space between them\n");
-        __fpurge(stdin);
-        scanf("%d %d", &calculator_operand1, &calculator_operand2);
-    }
-    else
-    {
-        printf("\n\t---Wrong choice---\nEnter to continue\n");
-        __fpurge(stdin);
-        getchar();
-        return;
-        
-    }
-    switch(calculator_operation)
-    {
-        case ADD:
-            printf("\n\t%d + %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            add(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case SUBTRACT:
-            printf("\n\t%d - %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            subtract(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case MULTIPLY:
-            printf("\n\t%d * %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            multiply(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case DIVIDE:
-            printf("\n\t%d / %d = %d\nEnter to continue", 
-            calculator_operand1, 
-            calculator_operand2,
-            divide(calculator_operand1, calculator_operand2));
-            
-            __fpurge(stdin);
-            getchar();
-            break;
-        case 5:
-            exit(0);
-            break;
-        default:
-            printf("\n\t---It should never come here---\n");
-    }
+	// Print the score after the
+	// game ends
+	printf("score = %d", score);
+	printf("\n");
+	printf("press X to quit the game");
 }
 
-int valid_operation(int operation)
+// Function to take the input
+void input()
 {
-    /* Check if the operation is a valid operation */
-    return ((ADD <= operation) && (EXIT >= operation)) ? VALID: INVALID;
+	if (kbhit()) {
+		switch (getch()) {
+		case 'a':
+			flag = 1;
+			break;
+		case 's':
+			flag = 2;
+			break;
+		case 'd':
+			flag = 3;
+			break;
+		case 'w':
+			flag = 4;
+			break;
+		case 'x':
+			gameover = 1;
+			break;
+		}
+	}
+}
+
+// Function for the logic behind
+// each movement
+void logic()
+{
+	sleep(0.01);
+	switch (flag) {
+	case 1:
+		y--;
+		break;
+	case 2:
+		x++;
+		break;
+	case 3:
+		y++;
+		break;
+	case 4:
+		x--;
+		break;
+	default:
+		break;
+	}
+
+	// If the game is over
+	if (x < 0 || x > height
+		|| y < 0 || y > width)
+		gameover = 1;
+
+	// If snake reaches the fruit
+	// then update the score
+	if (x == fruitx && y == fruity) {
+	label3:
+		fruitx = rand() % 20;
+		if (fruitx == 0)
+			goto label3;
+
+	// After eating the above fruit
+	// generate new fruit
+	label4:
+		fruity = rand() % 20;
+		if (fruity == 0)
+			goto label4;
+		score += 10;
+	}
+}
+
+// Driver Code
+void main()
+{
+	int m, n;
+
+	// Generate boundary
+	setup();
+
+	// Until the game is over
+	while (!gameover) {
+
+		// Function Call
+		draw();
+		input();
+		logic();
+	}
 }
