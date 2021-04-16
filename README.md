@@ -29,7 +29,7 @@ SF_ID |	Name |	Features |	No. of Test Cases |	No. of Test Cases Passing
 ----- | -------| ------|-----------|--------
 260794 |	Abhishek Singh Kunwar |	All |	2 |	2
 
-## Challenges Faced and How it was overcome
+## Challenges Faced 
 Challenge Faced |	Method to overcome
 ------------ | -------------
 Writing test case where the function doesn't take arguments |	Made those function to return SUCCESS or FAILURE
