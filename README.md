@@ -5,6 +5,7 @@ Snake Game is a common game where user has to eat Food which will be available i
 * [![Contribution Check - Git Inspector](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml)<br/>
 * [![CI-Coverage](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml)<br/>
 * [![Code Quality - Static Code - Cppcheck](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cppcheck.yml)
+* [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4cfd8610458c42249401ed7ea0890ed8)](https://www.codacy.com/gh/AbhishekKunwar17/LTTS_MiniProject/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AbhishekKunwar17/LTTS_MiniProject&amp;utm_campaign=Badge_Grade)
 
 
 
