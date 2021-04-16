@@ -1,6 +1,7 @@
 # Simple Snake Game
 Snake Game is a common game where user has to eat Food which will be available in different Coordinates. User has to move the direction of snake simply using arrow keys.The game is designed simply under C Programming Language. It’s easy to operate and understand.<br/>
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/87d1a2c4e02f4064b2cbaddf12ca94b3)](https://app.codacy.com/gh/AbhishekKunwar17/LTTS_MiniProject?utm_source=github.com&utm_medium=referral&utm_content=AbhishekKunwar17/LTTS_MiniProject&utm_campaign=Badge_Grade_Settings)
 * [![Linux C/C++ Build CI](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/build.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/build.yml)<br/>
 * [![Contribution Check - Git Inspector](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml)<br/>
 * [![CI-Coverage](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml)<br/>
