@@ -1,8 +1,9 @@
 # Simple Snake Game
 Snake Game is a common game where user has to eat Food which will be available in different Coordinates. User has to move the direction of snake simply using arrow keys.The game is designed simply under C Programming Language. It’s easy to operate and understand.<br/>
-[![Linux C/C++ Build CI](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/build.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/build.yml)
-[![Contribution Check - Git Inspector](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml)
-[![CI-Coverage](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml)
+[![Linux C/C++ Build CI](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/build.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/build.yml)<br/>
+[![Contribution Check - Git Inspector](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cpp_check.yml)<br/>
+[![CI-Coverage](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/coverage.yml)<br/>
+[![Code Quality - Static Code - Cppcheck](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cppcheck.yml/badge.svg)](https://github.com/AbhishekKunwar17/LTTS_MiniProject/actions/workflows/cppcheck.yml)
 
 
 
