@@ -3,46 +3,46 @@
 
 #include <unistd.h>
 
-int i, j, height = 20, width = 20;
-int gameover, score;
-int x, y, fruitx, fruity, flag;
+int i, j, ht = 20, wh = 20;
+int finish, score;
+int x, y, fx, fy, flag;
 
 // Function to generate the fruit
 // within the boundary
-void setup()
+void initialize()
 {
-	gameover = 0;
+	finish = 0;
 
 	// Stores height and width
-	x = height / 2;
-	y = width / 2;
+	x = ht / 2;
+	y = wh / 2;
 label1:
-	fruitx = rand() % 20;
-	if (fruitx == 0)
+	fx = rand() % 20;
+	if (fx == 0)
 		goto label1;
 label2:
-	fruity = rand() % 20;
-	if (fruity == 0)
+	fy = rand() % 20;
+	if (fy == 0)
 		goto label2;
 	score = 0;
 }
 
 // Function to draw the boundaries
-void draw()
+void boundary()
 {
-	system("cls");
-	for (i = 0; i < height; i++) {
-		for (j = 0; j < width; j++) {
-			if (i == 0 || i == width - 1
+	system("clear");
+	for (i = 0; i < ht; i++) {
+		for (j = 0; j < wh; j++) {
+			if (i == 0 || i == wh - 1
 				|| j == 0
-				|| j == height - 1) {
+				|| j == ht - 1) {
 				printf("#");
 			}
 			else {
 				if (i == x && j == y)
 					printf("0");
-				else if (i == fruitx
-						&& j == fruity)
+				else if (i == fx
+						&& j == fy)
 					printf("*");
 				else
 					printf(" ");
@@ -61,8 +61,8 @@ void draw()
 // Function to take the input
 void input()
 {
-	if (kbhit()) {
-		switch () {
+	if (getchar()) {
+		switch (getchar()) {
 		case 'a':
 			flag = 1;
 			break;
@@ -76,7 +76,7 @@ void input()
 			flag = 4;
 			break;
 		case 'x':
-			gameover = 1;
+			finish = 1;
 			break;
 		}
 	}
@@ -105,23 +105,23 @@ void logic()
 	}
 
 	// If the game is over
-	if (x < 0 || x > height
-		|| y < 0 || y > width)
-		gameover = 1;
+	if (x < 0 || x > ht
+		|| y < 0 || y > wh)
+		finish = 1;
 
 	// If snake reaches the fruit
 	// then update the score
-	if (x == fruitx && y == fruity) {
+	if (x == fx && y == fy) {
 	label3:
-		fruitx = rand() % 20;
-		if (fruitx == 0)
+		fx = rand() % 20;
+		if (fx == 0)
 			goto label3;
 
 	// After eating the above fruit
 	// generate new fruit
 	label4:
-		fruity = rand() % 20;
-		if (fruity == 0)
+		fy = rand() % 20;
+		if (fy == 0)
 			goto label4;
 		score += 10;
 	}
@@ -133,13 +133,13 @@ void main()
 	int m, n;
 
 	// Generate boundary
-	setup();
+	initialize();
 
 	// Until the game is over
-	while (!gameover) {
+	while (!finish) {
 
 		// Function Call
-		draw();
+		boundary();
 		input();
 		logic();
 	}
